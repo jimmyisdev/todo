@@ -1,0 +1,212 @@
+@import "init";
+@import "mixin";
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=PT+Sans+Narrow&family=Shadows+Into+Light&display=swap');
+
+$clr_dark: #12130F;
+$clr_light: #eff1ed;
+$clr_grey: #7F7F7F;
+
+$font_title: 'Oswald', sans-serif;
+$font-content: 'PT Sans Narrow', sans-serif;
+$font-art: 'Shadows Into Light', cursive;
+*{
+    margin: 0;
+    padding: 0;
+
+}
+h1{
+    font-size: 1.8rem;
+    padding: .5rem 0;
+        color: $clr_grey;
+}
+h2{
+    font-size: 1.4rem;
+    padding: .5rem 0; 
+    color: $clr_grey;
+
+}
+span{
+        color: $clr_grey;
+}
+button, li{
+    font-family: $font_content;
+}
+li{
+    margin: .5rem;
+    align-items: center;
+}
+img{
+    width: 100%;
+}
+button{
+    @include flexC;
+    background-color: transparent;
+
+}
+.dark{
+    background-color: $clr_dark;
+}
+
+
+// ---------------------- header ----------------------
+.header{
+    @include flexC;
+    padding: 1rem;
+    align-items: center;   
+    position: relative;
+    background-color: transparent;
+    &_logo{
+        height: 5rem;
+        width: 5rem;
+        background-color: transparent;
+        img{
+            height: 100%;
+        }
+    }
+    &_set_theme{
+        position: absolute;
+        margin: 0 1rem;
+        left: 0;
+
+    }
+    &_set_user{
+        position: absolute;
+        margin: 0 1rem;
+        right: 0;
+    }
+    .header_btn{
+        font-size: 2rem;
+        color:$clr_grey;
+    }
+}
+
+
+// ---------------------- input ----------------------
+.inputSec{
+    @include flexC;
+    width: 100vw;
+}
+
+.inputSec_content{
+    @include flexR;
+    padding: .5rem;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    input[type=text]{
+        width: 220px;
+        padding: .5rem;
+        font-size: 1rem;
+        border-bottom: 1px solid $clr_grey;
+    }
+    input[type=radio]{
+        margin: 0 .5rem;
+    }
+    .input_add{
+        margin: 1rem;
+        font-size: 2rem;
+        color: #152388;
+    }
+}
+
+
+
+// ---------------------- display ----------------------
+.display{
+    min-height: 70vh;
+}
+.todo_container{
+    @include flexR;
+    margin: 1rem;
+    justify-content: space-around;
+}
+.cond h2{
+    transition: all 1s;
+    
+
+}
+
+.cond:focus h2{
+    color: rgba(189,187,59,1);
+    
+
+}
+
+
+.todo_count{
+    @include flexC;
+    font-size: $font-content;
+}
+
+
+
+
+// ---------------------- todo Item ----------------------
+.todo_item{
+    position: relative;
+    isolation: isolate;
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    transition: all .5s;
+
+
+    textarea{
+        padding: .5rem;
+    }
+}
+
+.todo_item::before,
+.todo_item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: inherit;
+}
+
+.todo_item::before {
+  filter: blur(0.75em);
+}
+
+.todo_item::after {
+  opacity: 0.2;
+  filter: blur(2em);
+}
+
+
+
+
+
+.ctrl_btns{
+    width: 100%;
+    @include flexR;
+    justify-content: space-around;
+    padding: .5rem;
+    color: $clr_grey;
+}
+
+
+
+.emergent{background: rgb(136,21,21);
+background: -moz-linear-gradient(45deg, rgba(136,21,21,1) 0%, rgba(112,117,94,1) 91%, rgba(189,187,59,1) 100%);
+background: -webkit-linear-gradient(45deg, rgba(136,21,21,1) 0%, rgba(112,117,94,1) 91%, rgba(189,187,59,1) 100%);
+background: linear-gradient(45deg, rgba(136,21,21,1) 0%, rgba(112,117,94,1) 91%, rgba(189,187,59,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#881515",endColorstr="#bdbb3b",GradientType=1);}
+
+
+.normal{background: rgb(21,35,136);
+background: -moz-linear-gradient(45deg, rgba(21,35,136,1) 0%, rgba(112,117,94,1) 91%, rgba(189,187,59,1) 100%);
+background: -webkit-linear-gradient(45deg, rgba(21,35,136,1) 0%, rgba(112,117,94,1) 91%, rgba(189,187,59,1) 100%);
+background: linear-gradient(45deg, rgba(21,35,136,1) 0%, rgba(112,117,94,1) 91%, rgba(189,187,59,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#152388",endColorstr="#bdbb3b",GradientType=1);}
+
+
+
+// ---------------------- footer ----------------------
+footer{
+    @include flexC;
+    text-align: center;
+    padding: .5rem;
+    height: 15vh;
+}

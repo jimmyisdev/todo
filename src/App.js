@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import TodoContainer from "./components/TodoContainer";
+import Input from './components/Input';
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import { connect } from "react-redux";
 
-function App() {
+
+
+const mapStateToProps = (state) => {
+  return {
+    theme: state.global.theme,
+  };
+};
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={props.theme ? "" : "dark"}>
+      <Header />
+      <Input />
+      <TodoContainer />
+      <Footer />
     </div>
   );
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
+
